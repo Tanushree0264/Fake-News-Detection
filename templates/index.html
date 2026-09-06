@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detection System</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; }
+        .container { max-width:850px; margin:60px auto; background:white; padding:35px; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,.08); }
+        h1 { margin-top:0; }
+        textarea { width:100%; min-height:180px; padding:15px; box-sizing:border-box; border:1px solid #ccc; border-radius:10px; font-size:16px; }
+        button { margin-top:15px; padding:12px 24px; border:0; border-radius:8px; cursor:pointer; font-size:16px; }
+        .result { margin-top:25px; padding:18px; border-radius:10px; background:#eef2f5; }
+        .note { color:#666; font-size:14px; margin-top:20px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Fake News Detection System</h1>
+    <p>Enter a news headline or short news article below.</p>
+
+    <form method="POST">
+        <textarea name="news_text" placeholder="Enter news text here..." required>{{ text }}</textarea>
+        <button type="submit">Detect News</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <h2>Prediction: {{ result }}</h2>
+        <p>Model confidence: <strong>{{ confidence }}%</strong></p>
+    </div>
+    {% endif %}
+
+    <p class="note">
+        Educational project only. A machine-learning prediction is not the same as independent fact checking.
+    </p>
+</div>
+</body>
+</html>
